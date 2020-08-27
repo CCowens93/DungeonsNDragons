@@ -2,7 +2,7 @@ package com.ccowens.dungeonsanddragons;
 
 import com.ccowens.dungeonsanddragons.model.Event;
 import com.ccowens.dungeonsanddragons.model.Wizard;
-import com.ccowens.dungeonsanddragons.model.GroupRepository;
+import com.ccowens.dungeonsanddragons.model.WizardRepository;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -14,9 +14,9 @@ import java.util.stream.Stream;
 @Component
 class Initializer implements CommandLineRunner {
 
-    private final GroupRepository repository;
+    private final WizardRepository repository;
 
-    public Initializer(GroupRepository repository) {
+    public Initializer(WizardRepository repository) {
         this.repository = repository;
     }
 
