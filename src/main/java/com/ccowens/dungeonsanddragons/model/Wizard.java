@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import lombok.RequiredArgsContructor;
+
 
 import javax.persistence.*;
 import java.util.Set;
@@ -26,7 +26,7 @@ public class Wizard {
     private String background;
     private String alignment;
     private String playerName;
-    private int experiencePoints;
+    private String experiencePoints;
     @ManyToOne(cascade=CascadeType.PERSIST)
     private User user;
 
