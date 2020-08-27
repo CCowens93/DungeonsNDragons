@@ -38,17 +38,13 @@ class Wizard extends Component{
           }
 
           const wizardList = wizard.map(wizard => {
-                const character = `${wizard.name || ''} ${wizard.classAndLevel || ''} ${wizard.race || ''}`;
+                const classAndLevel = `${wizard.classAndLevel}`;
+                const race = `${wizard.race}`;
                 return <tr key={wizard.id}>
                   <td style={{whiteSpace: 'nowrap'}}>{wizard.name}</td>
-                  <td>{character}</td>
-                  <td>{wizard.events.map(event => {
-                    return <div key={event.id}>{new Intl.DateTimeFormat('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: '2-digit'
-                    }).format(new Date(event.date))}: {event.title}</div>
-                  })}</td>
+                  <td>{classAndLevel}</td>
+                  <td>{race}</td>
+
                   <td>
                     <ButtonGroup>
                       <Button size="sm" color="primary" tag={Link} to={"/wizard/" + wizard.id}>Edit</Button>
@@ -71,7 +67,7 @@ class Wizard extends Component{
                           <tr>
                             <th width="20%">Name</th>
                             <th width="20%">Class and Level</th>
-                            <th>Race</th>
+                            <th width="20%">Race</th>
                             <th width="10%">Actions</th>
                           </tr>
                           </thead>
