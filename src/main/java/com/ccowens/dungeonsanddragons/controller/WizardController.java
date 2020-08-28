@@ -26,7 +26,7 @@ public class WizardController {
     }
 
     @GetMapping("/wizard")
-    Collection<Wizard> wizard() {
+    Collection<Wizard> wizards() {
         return wizardRepository.findAll();
     }
 

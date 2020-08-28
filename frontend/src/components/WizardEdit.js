@@ -13,7 +13,8 @@ class WizardEdit extends Component {
     alignment: '',
     playerName: '',
     experiencePoints:''
-  };
+    };
+
 constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +44,7 @@ async handleSubmit(event) {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch('/api/wizard', {
+    await fetch('/api/wizard/{id}', {
       method: (item.id) ? 'PUT' : 'POST',
       headers: {
         'Accept': 'application/json',
@@ -53,6 +54,7 @@ async handleSubmit(event) {
     });
     this.props.history.push('/wizard');
   }
+
 render() {
     const {item} = this.state;
     const title = <h2>{item.id ? 'Edit Wizard' : 'Add Wizard'}</h2>;
