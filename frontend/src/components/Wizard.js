@@ -40,11 +40,19 @@ class Wizard extends Component{
           const wizardList = wizard.map(wizard => {
                 const classAndLevel = `${wizard.classAndLevel}`;
                 const race = `${wizard.race}`;
+                const background = `${wizard.background}`;
+                const alignment = `${wizard.alignment}`;
+                const playerName = `${wizard.playerName}`;
+                const experiencePoints =`${wizard.experiencePoints}`;
+
                 return <tr key={wizard.id}>
                   <td style={{whiteSpace: 'nowrap'}}>{wizard.name}</td>
                   <td>{classAndLevel}</td>
                   <td>{race}</td>
-
+                  <td>{background}</td>
+                  <td>{alignment}</td>
+                  <td>{playerName}</td>
+                  <td>{experiencePoints}</td>
                   <td>
                     <ButtonGroup>
                       <Button size="sm" color="primary" tag={Link} to={"/wizard/" + wizard.id}>Edit</Button>
@@ -65,9 +73,13 @@ class Wizard extends Component{
                         <Table className="mt-4">
                           <thead>
                           <tr>
-                            <th width="20%">Name</th>
-                            <th width="20%">Class and Level</th>
-                            <th width="20%">Race</th>
+                            <th width="10%">Name</th>
+                            <th width="10%">Class and Level</th>
+                            <th width="10%">Race</th>
+                            <th width="10%">Background</th>
+                            <th width="10%">Alignment</th>
+                            <th width="10%">Player Name</th>
+                            <th width="10%">Experience Points</th>
                             <th width="10%">Actions</th>
                           </tr>
                           </thead>

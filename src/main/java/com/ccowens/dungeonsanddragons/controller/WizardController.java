@@ -17,6 +17,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class WizardController {
+
     private final Logger log = LoggerFactory.getLogger(WizardController.class);
     private WizardRepository wizardRepository;
 
@@ -25,7 +26,7 @@ public class WizardController {
     }
 
     @GetMapping("/wizard")
-    Collection<Wizard> groups() {
+    Collection<Wizard> wizard() {
         return wizardRepository.findAll();
     }
 
@@ -38,7 +39,7 @@ public class WizardController {
 
     @PostMapping("/wizard")
     ResponseEntity<Wizard> createWizard(@Valid @RequestBody Wizard wizard) throws URISyntaxException {
-        log.info("Request to create group: {}", wizard);
+        log.info("Request to create wizard: {}", wizard);
         Wizard result = wizardRepository.save(wizard);
         return ResponseEntity.created(new URI("/api/wizard/" + result.getId()))
                 .body(result);

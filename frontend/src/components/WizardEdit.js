@@ -38,6 +38,7 @@ constructor(props) {
     item[name] = value;
     this.setState({item});
   }
+
 async handleSubmit(event) {
     event.preventDefault();
     const {item} = this.state;
@@ -61,46 +62,61 @@ render() {
       <Container>
         {title}
         <Form onSubmit={this.handleSubmit}>
-          <FormGroup>
+           <FormGroup>
             <Label for="name">Name</Label>
             <Input type="text" name="name" id="name" value={item.name || ''}
-                   onChange={this.handleChange} autoComplete="name"/>
+                   onChange={this.handleChange}/>
             </FormGroup>
            <FormGroup>
             <Label for="classAndLevel">Class & Level</Label>
-            <Input type="text" name="classNameLevel" id="classAndLevel" value={item.classAndLevel || ''}
-                   onChange={this.handleChange} autoComplete="classAndLevel"/>
+            <Input type="text" name="classAndLevel" id="classAndLevel" value={item.classAndLevel || ''}
+                   onChange={this.handleChange}/>
           </FormGroup>
           <FormGroup>
             <Label for="race">Race</Label>
             <Input type="text" name="race" id="race" value={item.race || ''}
-                   onChange={this.handleChange} autoComplete="race"/>
+                   onChange={this.handleChange}/>
           </FormGroup>
           <div className="row">
             <FormGroup className="col-md-4 mb-3">
               <Label for="background">Background</Label>
               <Input type="text" name="background" id="background" value={item.background || ''}
-                     onChange={this.handleChange} autoComplete="background"/>
+                     onChange={this.handleChange} />
             </FormGroup>
+
             <FormGroup className="col-md-5 mb-3">
               <Label for="alignment">Alignment</Label>
-              <Input type="text" name="alignment" id="alignment" value={item.alignment || ''}
-                     onChange={this.handleChange} autoComplete="alignment"/>
+              <Input
+                type="select"
+                value={item.alignment || ''}
+                name="alignment" id="alignment"
+                onChange={this.handleChange}>
+                    <option value="Lawful Good">Lawful Good</option>
+                    <option value="Neutral Good">Neutral Good</option>
+                    <option value="Chaotic Good">Chaotic Good</option>
+                    <option value="Lawful Neutral">Lawful Neutral</option>
+                    <option value="True Neutral">True Neutral</option>
+                    <option value="Chaotic Neutral">Chaotic Neutral</option>
+                    <option value="Lawful Evil">Lawful Evil</option>
+                    <option value="Neutral Evil">Neutral Evil</option>
+                    <option value="Chaotic Evil">Chaotic Evil</option>
+              </Input>
             </FormGroup>
+
             <FormGroup className="col-md-3 mb-3">
               <Label for="playerName">Player Name</Label>
               <Input type="text" name="playerName" id="playerName" value={item.playerName || ''}
-                     onChange={this.handleChange} autoComplete="playerName"/>
+                     onChange={this.handleChange} />
             </FormGroup>
             <FormGroup className="col-md-3 mb-3">
               <Label for="experiencePoints">Experience Points</Label>
-              <Input type="text" name="experiencePoints" id="experiencePoints" value={item.experiencePoints || ''}
-                     onChange={this.handleChange} autoComplete="experiencePoints"/>
+              <Input type="number" name="experiencePoints" id="experiencePoints" value={item.experiencePoints || ''}
+                     onChange={this.handleChange} />
             </FormGroup>
           </div>
           <FormGroup>
             <Button color="primary" type="submit">Save</Button>{' '}
-            <Button color="secondary" tag={Link} to="/groups">Cancel</Button>
+            <Button color="secondary" tag={Link} to="/wizard">Cancel</Button>
           </FormGroup>
         </Form>
       </Container>
