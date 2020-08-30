@@ -44,23 +44,13 @@ class Wizard extends Component{
                 const alignment = `${wizard.alignment}`;
                 const playerName = `${wizard.playerName}`;
                 const experiencePoints =`${wizard.experiencePoints}`;
-                const age = `${wizard.age}`;
-                const eyes = `${wizard.eyes}`;
-                const height = `${wizard.height}`;
-                const skin = `${wizard.skin}`;
-                const weight = `${wizard.weight}`;
-                const hair = `${wizard.hair}`;
-                const personalityTraits = `${wizard.personalityTraits}`;
-                const ideals = `${wizard.ideals}`;
-                const bonds = `${wizard.bonds}`;
-                const flaws = `${wizard.flaws}`;
-                const featuresAndTraits = `${wizard.featuresAndTraits}`;
+
 
             return <tr className="wiz" key={wizard.id}>
             <br></br>
             <div className="wizzz">
                   <th width="150px" height="100px">Name</th>
-                  <td width="150px" height="100px" style={{whiteSpace: 'wrap'}}>{wizard.name}</td>
+                  <td width="150px" height="100px" style={{whiteSpace: 'wrap'}}><Link to={"/wizard/" + wizard.id}>{wizard.name}</Link></td>
             </div>
             <div className="wizzz">
                   <th width="150px" height="100px">Class and Level</th>
@@ -86,55 +76,11 @@ class Wizard extends Component{
                   <th width="150px" height="100px">Experience Points</th>
                   <td width="150px" height="100px">{experiencePoints}</td>
             </div>
-            <div className="wizzz">
-                  <th width="150px" height="100px">Age</th>
-                  <td width="150px" height="100px">{age}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="150px" height="100px">Eyes</th>
-                  <td width="150px" height="100px">{eyes}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="150px" height="100px">Height</th>
-                  <td width="150px" height="100px">{height}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="150px" height="100px">Skin</th>
-                  <td width="150px" height="100px">{skin}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="150px" height="100px">Weight</th>
-                  <td width="150px" height="100px">{weight}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="150px" height="100px">Hair</th>
-                  <td width="150px" height="100px">{hair}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="400px" height="100px">Personality Traits</th>
-                  <td width="400px" height="100px">{personalityTraits}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="400px" height="100px">Ideals</th>
-                  <td width="400px" height="100px">{ideals}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="400px" height="100px">Bonds</th>
-                  <td width="400px" height="100px">{bonds}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="400px" height="100px">Flaws</th>
-                  <td width="400px" height="100px">{flaws}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="400px" height="100px">Features & Traits</th>
-                  <td width="400px" height="200px">{featuresAndTraits}</td>
-            </div>
+
             <div className="wizzz">
                   <th width="100px" height="100px">Action</th>
                   <td width="100px" height="100px">
                      <ButtonGroup>
-                         <Button size="sm" color="primary" tag={Link} to={"/wizard/" + wizard.id}>Edit</Button>
                          <Button size="sm" color="danger" onClick={() => this.remove(wizard.id)}>Delete</Button>
                      </ButtonGroup>
                   </td>
@@ -158,22 +104,14 @@ class Wizard extends Component{
                         <Table className="wiz">
                           <thead>
                           <tr className="wiz">
-
                           </tr>
-
                           </thead>
                           <tbody>
                           {wizardList}
                           </tbody>
                         </Table>
-
-
                         </div>
-
                       </Container>
-
-
-
                     </div>
                   );
         }
