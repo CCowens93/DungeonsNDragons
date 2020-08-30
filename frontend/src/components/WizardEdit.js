@@ -12,7 +12,8 @@ class WizardEdit extends Component {
     background: '',
     alignment: '',
     playerName: '',
-    experiencePoints:''
+    experiencePoints:'',
+    personalityTraits:''
     };
 
 constructor(props) {
@@ -115,7 +116,14 @@ render() {
               <Input type="number" name="experiencePoints" id="experiencePoints" value={item.experiencePoints || ''}
                      onChange={this.handleChange} />
             </FormGroup>
+
           </div>
+            <FormGroup>
+              <Label for="personalityTraits">Personality Traits</Label>
+              <Input type="text" name="personalityTraits" id="personalityTraits" value={item.personalityTraits ||''}
+                     onChange={this.handleChange} />
+            </FormGroup>
+
           <FormGroup>
             <Button color="primary" type="submit">Save</Button>{' '}
             <Button color="secondary" tag={Link} to="/wizard">Cancel</Button>

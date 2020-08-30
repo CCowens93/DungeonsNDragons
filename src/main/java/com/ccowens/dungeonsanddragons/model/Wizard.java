@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Entity
-@Table(name="user_group")
+@Table(name="user_wizard")
 
 public class Wizard {
     @Id
@@ -27,9 +27,16 @@ public class Wizard {
     private String alignment;
     private String playerName;
     private String experiencePoints;
+    private String personalityTraits;
+    private String ideals;
+    private String bonds;
+    private String flaws;
     @ManyToOne(cascade=CascadeType.PERSIST)
     private User user;
 
     @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private Set<Event> events;
+
+
+
 }

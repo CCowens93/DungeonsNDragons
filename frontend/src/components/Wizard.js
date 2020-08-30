@@ -44,8 +44,10 @@ class Wizard extends Component{
                 const alignment = `${wizard.alignment}`;
                 const playerName = `${wizard.playerName}`;
                 const experiencePoints =`${wizard.experiencePoints}`;
+                const personalityTraits = `${wizard.personalityTraits}`;
 
-                return <tr key={wizard.id}>
+            return <tr key={wizard.id}>
+
                   <td style={{whiteSpace: 'nowrap'}}>{wizard.name}</td>
                   <td>{classAndLevel}</td>
                   <td>{race}</td>
@@ -53,6 +55,7 @@ class Wizard extends Component{
                   <td>{alignment}</td>
                   <td>{playerName}</td>
                   <td>{experiencePoints}</td>
+
                   <td>
                     <ButtonGroup>
                       <Button size="sm" color="primary" tag={Link} to={"/wizard/" + wizard.id}>Edit</Button>
@@ -61,6 +64,20 @@ class Wizard extends Component{
                   </td>
                 </tr>
               });
+
+              const wizardList2 = wizard.map(wizard => {
+                    const personalityTraits = `${wizard.personalityTraits}`;
+
+              return <tr key={wizard.id}>
+                    <td>{personalityTraits}</td>
+                    <td>
+                    <ButtonGroup>
+                      <Button size="sm" color="primary" tag={Link} to={"/wizard/" + wizard.id}>Edit</Button>
+                      <Button size="sm" color="danger" onClick={() => this.remove(wizard.id)}>Delete</Button>
+                    </ButtonGroup>
+                  </td>
+                </tr>
+              })
 
               return (
                     <div>
@@ -82,12 +99,29 @@ class Wizard extends Component{
                             <th width="10%">Experience Points</th>
                             <th width="10%">Actions</th>
                           </tr>
+
                           </thead>
                           <tbody>
                           {wizardList}
                           </tbody>
                         </Table>
+
+                        <Table className="mt-4">
+                            <thead>
+                                <tr>
+                                    <th width="10%">Personality Traits</th>
+                                    <th width="10%">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {wizardList2}
+                            </tbody>
+                        </Table>
+
                       </Container>
+
+
+
                     </div>
                   );
         }

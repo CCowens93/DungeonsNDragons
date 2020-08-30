@@ -26,7 +26,7 @@ public class WizardController {
     }
 
     @GetMapping("/wizard")
-    Collection<Wizard> wizards() {
+    Collection<Wizard> wizard() {
         return wizardRepository.findAll();
     }
 
@@ -37,7 +37,7 @@ public class WizardController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping("/wizard")
+    @PostMapping("/wizard/{id}")
     ResponseEntity<Wizard> createWizard(@Valid @RequestBody Wizard wizard) throws URISyntaxException {
         log.info("Request to create wizard: {}", wizard);
         Wizard result = wizardRepository.save(wizard);
