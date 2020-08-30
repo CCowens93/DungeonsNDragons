@@ -13,7 +13,11 @@ class WizardEdit extends Component {
     alignment: '',
     playerName: '',
     experiencePoints:'',
-    personalityTraits:''
+    personalityTraits:'',
+    ideals:'',
+    bonds:'',
+    flaws:'',
+    featuresAndTraits:''
     };
 
 constructor(props) {
@@ -58,7 +62,7 @@ async handleSubmit(event) {
 
 render() {
     const {item} = this.state;
-    const title = <h2>{item.id ? 'Edit Wizard' : 'Add Wizard'}</h2>;
+    const title = <h2>{item.id ? `Update ${item.name}` : 'Add Wizard'}</h2>;
 
     return <div>
       <AppNavbar/>
@@ -122,6 +126,26 @@ render() {
               <Label for="personalityTraits">Personality Traits</Label>
               <Input type="text" name="personalityTraits" id="personalityTraits" value={item.personalityTraits ||''}
                      onChange={this.handleChange} />
+            </FormGroup>
+            <FormGroup>
+              <Label for="ideals">Ideals</Label>
+              <Input type="text" name="ideals" id="ideals" value={item.ideals ||''}
+                     onChange={this.handleChange} />
+            </FormGroup>
+            <FormGroup>
+               <Label for="bonds">Bonds</Label>
+               <Input type="text" name="bonds" id="personalityTraits" value={item.bonds ||''}
+                      onChange={this.handleChange} />
+            </FormGroup>
+            <FormGroup>
+              <Label for="flaws">Flaws</Label>
+              <Input type="text" name="flaws" id="flaws" value={item.flaws ||''}
+                      onChange={this.handleChange} />
+            </FormGroup>
+            <FormGroup>
+                <Label for="featuresAndTraits">Features & Traits</Label>
+                <Input type="text" name="featuresAndTraits" id="featuresAndTraits" value={item.featuresAndTraits || ''}
+                      onChange={this.handleChange} />
             </FormGroup>
 
           <FormGroup>

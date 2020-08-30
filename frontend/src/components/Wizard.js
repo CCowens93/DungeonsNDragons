@@ -44,7 +44,7 @@ class Wizard extends Component{
                 const alignment = `${wizard.alignment}`;
                 const playerName = `${wizard.playerName}`;
                 const experiencePoints =`${wizard.experiencePoints}`;
-                const personalityTraits = `${wizard.personalityTraits}`;
+
 
             return <tr key={wizard.id}>
 
@@ -56,20 +56,23 @@ class Wizard extends Component{
                   <td>{playerName}</td>
                   <td>{experiencePoints}</td>
 
-                  <td>
-                    <ButtonGroup>
-                      <Button size="sm" color="primary" tag={Link} to={"/wizard/" + wizard.id}>Edit</Button>
-                      <Button size="sm" color="danger" onClick={() => this.remove(wizard.id)}>Delete</Button>
-                    </ButtonGroup>
-                  </td>
+
                 </tr>
               });
 
               const wizardList2 = wizard.map(wizard => {
                     const personalityTraits = `${wizard.personalityTraits}`;
+                    const ideals = `${wizard.ideals}`;
+                    const bonds = `${wizard.bonds}`;
+                    const flaws = `${wizard.flaws}`;
+                    const featuresAndTraits = `${wizard.featuresAndTraits}`;
 
               return <tr key={wizard.id}>
                     <td>{personalityTraits}</td>
+                    <td>{ideals}</td>
+                    <td>{bonds}</td>
+                    <td>{flaws}</td>
+                    <td>{featuresAndTraits}</td>
                     <td>
                     <ButtonGroup>
                       <Button size="sm" color="primary" tag={Link} to={"/wizard/" + wizard.id}>Edit</Button>
@@ -97,7 +100,7 @@ class Wizard extends Component{
                             <th width="10%">Alignment</th>
                             <th width="10%">Player Name</th>
                             <th width="10%">Experience Points</th>
-                            <th width="10%">Actions</th>
+
                           </tr>
 
                           </thead>
@@ -110,6 +113,10 @@ class Wizard extends Component{
                             <thead>
                                 <tr>
                                     <th width="10%">Personality Traits</th>
+                                    <th width="10%">Ideals</th>
+                                    <th width="10%">Bonds</th>
+                                    <th width="10%">Flaws</th>
+                                    <th width="10%">Features & Traits</th>
                                     <th width="10%">Actions</th>
                                 </tr>
                             </thead>

@@ -31,6 +31,7 @@ public class Wizard {
     private String ideals;
     private String bonds;
     private String flaws;
+    private String featuresAndTraits;
     @ManyToOne(cascade=CascadeType.PERSIST)
     private User user;
 
