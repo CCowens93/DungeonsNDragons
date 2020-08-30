@@ -55,12 +55,28 @@ class Wizard extends Component{
                   <td>{alignment}</td>
                   <td>{playerName}</td>
                   <td>{experiencePoints}</td>
-
-
                 </tr>
               });
 
               const wizardList2 = wizard.map(wizard => {
+                    const age = `${wizard.age}`;
+                    const eyes = `${wizard.eyes}`;
+                    const height = `${wizard.height}`;
+                    const skin = `${wizard.skin}`;
+                    const weight = `${wizard.weight}`;
+                    const hair = `${wizard.hair}`;
+
+              return <tr key={wizard.id}>
+                        <td>{age}</td>
+                        <td>{eyes}</td>
+                        <td>{height}</td>
+                        <td>{skin}</td>
+                        <td>{weight}</td>
+                        <td>{hair}</td>
+                     </tr>
+              })
+
+              const wizardList3 = wizard.map(wizard => {
                     const personalityTraits = `${wizard.personalityTraits}`;
                     const ideals = `${wizard.ideals}`;
                     const bonds = `${wizard.bonds}`;
@@ -89,7 +105,7 @@ class Wizard extends Component{
                         <div className="float-right">
                           <Button color="success" tag={Link} to="/wizard/new">Add Wizard</Button>
                         </div>
-                        <h3>My Wizards</h3>
+                        <h3>Wizard Characters</h3>
                         <Table className="mt-4">
                           <thead>
                           <tr>
@@ -112,6 +128,22 @@ class Wizard extends Component{
                         <Table className="mt-4">
                             <thead>
                                 <tr>
+                                    <th width="10%">Age</th>
+                                    <th width="10%">Eyes</th>
+                                    <th width="10%">Height</th>
+                                    <th width="10%">Skin</th>
+                                    <th width="10%">Weight</th>
+                                    <th width="10%">Hair</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {wizardList2}
+                            </tbody>
+                        </Table>
+
+                        <Table className="mt-4">
+                            <thead>
+                                <tr>
                                     <th width="10%">Personality Traits</th>
                                     <th width="10%">Ideals</th>
                                     <th width="10%">Bonds</th>
@@ -121,7 +153,7 @@ class Wizard extends Component{
                                 </tr>
                             </thead>
                             <tbody>
-                            {wizardList2}
+                            {wizardList3}
                             </tbody>
                         </Table>
 

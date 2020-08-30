@@ -27,11 +27,22 @@ public class Wizard {
     private String alignment;
     private String playerName;
     private String experiencePoints;
+    private String age;
+    private String eyes;
+    private String height;
+    private String skin;
+    private String weight;
+    private String hair;
     private String personalityTraits;
     private String ideals;
     private String bonds;
     private String flaws;
     private String featuresAndTraits;
+    private String additionalFeaturesAndTraits;
+    private String treasure;
+    private String characterAppearances;
+    private String characterBackstory;
+    private String alliesAndOrganizations;
     @ManyToOne(cascade=CascadeType.PERSIST)
     private User user;
 
