@@ -70,7 +70,6 @@ class Wizard extends Component{
                         <Button color="success" tag={Link} to="/wizard/new">Add</Button>
                     </div>
                     <h3>Wizard Character</h3>
-                    <h5><Link to="/spells">Cantrips and Spells</Link></h5>
             <Table className="mt-4">
                 <thead>
                     <tr>

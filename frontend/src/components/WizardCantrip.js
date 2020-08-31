@@ -3,7 +3,7 @@ import { Button, ButtonGroup, Container, Table } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 
 
-class WizardSpells extends Component{
+class WizardCantrip extends Component{
 
         cantrip = [
               {
@@ -197,4 +197,4 @@ class WizardSpells extends Component{
 }
 
 
-export default WizardSpells
+export default WizardCantrip

@@ -79,6 +79,7 @@ render() {
       <AppNavbar/>
       <Container>
         {title}
+        <h5><Link to="/wizard-cantrips">Cantrips</Link></h5>
         <Form onSubmit={this.handleSubmit}>
            <FormGroup>
             <Label for="name">Name</Label>
@@ -217,11 +218,16 @@ render() {
                 <Input type="text" name="alliesAndOrganizations" id="alliesAndOrganizations" value={item.alliesAndOrganizations || ''}
                         onChange={this.handleChange} />
             </FormGroup>
+
+
             <FormGroup>
             <Button color="primary" type="submit">Save</Button>{' '}
             <Button color="secondary" tag={Link} to="/wizard">Cancel</Button>
           </FormGroup>
+
+
         </Form>
+
       </Container>
     </div>
   }
