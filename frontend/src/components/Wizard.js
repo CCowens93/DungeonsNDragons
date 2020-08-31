@@ -45,76 +45,54 @@ class Wizard extends Component{
                 const playerName = `${wizard.playerName}`;
                 const experiencePoints =`${wizard.experiencePoints}`;
 
+                return <tr key={wizard.id}>
+                            <td style={{whiteSpace: 'nowrap'}}><Link to={"/wizard/" + wizard.id}>{wizard.name}</Link></td>
+                            <td>{classAndLevel}</td>
+                            <td>{race}</td>
+                            <td>{background}</td>
+                            <td>{alignment}</td>
+                            <td>{playerName}</td>
+                            <td>{experiencePoints}</td>
+                            <td>
+                                <ButtonGroup>
+                                    <Button size="sm" color="danger" onClick={() => this.remove(wizard.id)}>Delete</Button>
+                                </ButtonGroup>
+                            </td>
+                       </tr>
+          })
 
-            return <tr className="wiz" key={wizard.id}>
-            <br></br>
-            <div className="wizzz">
-                  <th width="150px" height="100px">Name</th>
-                  <td width="150px" height="100px" style={{whiteSpace: 'wrap'}}><Link to={"/wizard/" + wizard.id}>{wizard.name}</Link></td>
-            </div>
-            <div className="wizzz">
-                  <th width="150px" height="100px">Class and Level</th>
-                  <td width="150px" height="100px">{classAndLevel}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="150px" height="100px">Race</th>
-                  <td width="150px" height="100px">{race}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="150px" height="100px">Background</th>
-                  <td width="150px" height="100px">{background}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="150px" height="100px">Alignment</th>
-                  <td width="150px" height="100px">{alignment}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="150px" height="100px">Player Name</th>
-                  <td width="150px" height="100px">{playerName}</td>
-            </div>
-            <div className="wizzz">
-                  <th width="150px" height="100px">Experience Points</th>
-                  <td width="150px" height="100px">{experiencePoints}</td>
-            </div>
+            return (
 
-            <div className="wizzz">
-                  <th width="100px" height="100px">Action</th>
-                  <td width="100px" height="100px">
-                     <ButtonGroup>
-                         <Button size="sm" color="danger" onClick={() => this.remove(wizard.id)}>Delete</Button>
-                     </ButtonGroup>
-                  </td>
-                  <br></br>
-            </div>
-                </tr>
-
-              });
-
-
-
-              return (
-                    <div>
-                      <AppNavbar/>
-                      <Container fluid>
-                        <div>
-                          <Button color="success" tag={Link} to="/wizard/new">Add Wizard</Button>
-                        </div>
-                        <h3>Wizard Characters</h3>
-                        <div className="wiz">
-                        <Table className="wiz">
-                          <thead>
-                          <tr className="wiz">
-                          </tr>
-                          </thead>
-                          <tbody>
-                          {wizardList}
-                          </tbody>
-                        </Table>
-                        </div>
-                      </Container>
+            <div>
+            <AppNavbar/>
+            <Container>
+                    <div className="float-right">
+                        <Button color="success" tag={Link} to="/wizard/new">Add</Button>
                     </div>
-                  );
-        }
-}
+                    <h3>Wizard Character</h3>
+                    <h5><Link to="/spells">Cantrips and Spells</Link></h5>
+            <Table className="mt-4">
+                <thead>
+                    <tr>
+                        <th width="10%">Name</th>
+                        <th width="10%">Class & Level</th>
+                        <th width="10%">Race</th>
+                        <th width="10%">Background</th>
+                        <th width="10%">Alignment</th>
+                        <th width="10%">Player Name</th>
+                        <th width="10%">Experience Points</th>
+                        <th width="10%">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        {wizardList}
+                </tbody>
+            </Table>
+            </Container>
+            </div>
+        )
+    }
+ }
+
 
 export default Wizard;
