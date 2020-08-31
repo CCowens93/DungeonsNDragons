@@ -80,6 +80,8 @@ render() {
       <Container>
         {title}
         <h5><Link to="/wizard-cantrips">Cantrips</Link></h5>
+        <h5><Link to="/wizard-level1-spells">Level 1 Spells</Link></h5>
+        <a href="#treasure">Treasure</a>
         <Form onSubmit={this.handleSubmit}>
            <FormGroup>
             <Label for="name">Name</Label>
