@@ -23,7 +23,12 @@ class WizardEdit extends Component {
     ideals:'',
     bonds:'',
     flaws:'',
-    featuresAndTraits:''
+    featuresAndTraits:'',
+    additionalFeaturesAndTraits:'',
+    treasure:'',
+    characterAppearance:'',
+    characterBackstory:'',
+    alliesAndOrganizations:''
     };
 
 constructor(props) {
@@ -180,16 +185,39 @@ render() {
             <FormGroup>
               <Label for="flaws">Flaws</Label>
               <Input type="text" name="flaws" id="flaws" value={item.flaws ||''}
-                      onChange={this.handleChange} />
+                        onChange={this.handleChange} />
             </FormGroup>
             <FormGroup>
                 <Label for="featuresAndTraits">Features & Traits</Label>
                 <Input type="text" name="featuresAndTraits" id="featuresAndTraits" value={item.featuresAndTraits || ''}
-                      onChange={this.handleChange} />
+                        onChange={this.handleChange} />
             </FormGroup>
-
-
-          <FormGroup>
+            <FormGroup>
+                <Label for="additionalFeaturesAndTraits">Additional Features & Traits</Label>
+                <Input type="text" name="additionalFeaturesAndTraits" id="additionalFeaturesAndTraits" value={item.additionalFeaturesAndTraits || ''}
+                        onChange={this.handleChange} />
+            </FormGroup>
+            <FormGroup>
+                <Label for="treasure">Treasure</Label>
+                <Input type="text" name="treasure" id="treasure" value={item.treasure || ''}
+                        onChange={this.handleChange} />
+            </FormGroup>
+            <FormGroup>
+                <Label for="characterAppearances">Character Appearances</Label>
+                <Input type="text" name="characterAppearances" id="characterAppearances" value={item.characterAppearances || ''}
+                        onChange={this.handleChange} />
+            </FormGroup>
+            <FormGroup>
+                <Label for="characterBackstory">Character Backstory</Label>
+                <Input type="text" name="characterBackstory" id="characterBackstory" value={item.characterBackstory || ''}
+                        onChange={this.handleChange} />
+            </FormGroup>
+            <FormGroup>
+                <Label for="alliesAndOrganizations"> Allies & Organizations</Label>
+                <Input type="text" name="alliesAndOrganizations" id="alliesAndOrganizations" value={item.alliesAndOrganizations || ''}
+                        onChange={this.handleChange} />
+            </FormGroup>
+            <FormGroup>
             <Button color="primary" type="submit">Save</Button>{' '}
             <Button color="secondary" tag={Link} to="/wizard">Cancel</Button>
           </FormGroup>
