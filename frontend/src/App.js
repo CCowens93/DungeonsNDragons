@@ -8,7 +8,9 @@ import WizardCantrips from './components/WizardCantrip';
 import WizardLevel1Spells from './components/WizardLevel1Spells'
 
 class App extends Component {
+
   render() {
+
     return (
       <Router>
         <Switch>

@@ -40,6 +40,7 @@ constructor(props) {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   async componentDidMount() {
     if (this.props.match.params.id !== 'new') {
       const wizard = await (await fetch(`/api/wizard/${this.props.match.params.id}`)).json();
@@ -79,9 +80,7 @@ render() {
       <AppNavbar/>
       <Container>
         {title}
-        <h5><Link to="/wizard-cantrips">Cantrips</Link></h5>
-        <h5><Link to="/wizard-level1-spells">Level 1 Spells</Link></h5>
-        <a href="#treasure">Treasure</a>
+
         <Form onSubmit={this.handleSubmit}>
            <FormGroup>
             <Label for="name">Name</Label>
@@ -114,6 +113,7 @@ render() {
                 value={item.alignment || ''}
                 name="alignment" id="alignment"
                 onChange={this.handleChange}>
+                    <option value="" disabled hidden>Select One</option>
                     <option value="Lawful Good">Lawful Good</option>
                     <option value="Neutral Good">Neutral Good</option>
                     <option value="Chaotic Good">Chaotic Good</option>
@@ -220,15 +220,14 @@ render() {
                 <Input type="text" name="alliesAndOrganizations" id="alliesAndOrganizations" value={item.alliesAndOrganizations || ''}
                         onChange={this.handleChange} />
             </FormGroup>
-
-
             <FormGroup>
             <Button color="primary" type="submit">Save</Button>{' '}
             <Button color="secondary" tag={Link} to="/wizard">Cancel</Button>
           </FormGroup>
-
-
         </Form>
+
+        <h3><Link to="wizard-cantrip">Cantrips</Link></h3>
+        <h3><Link to="/wizard-level1-spells/">Level 1 Spells</Link></h3>
 
       </Container>
     </div>
