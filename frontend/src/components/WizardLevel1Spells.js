@@ -302,7 +302,7 @@ class WizardLevel1Spells extends Component {
 
          <Container fluid>
 
-         <Table>
+         <Table bordered hover dark>
              <thead>
                  <tr>
                      <th>Level 1 Spell</th>

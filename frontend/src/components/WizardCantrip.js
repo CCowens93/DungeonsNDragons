@@ -172,12 +172,6 @@ class WizardCantrip extends Component{
                           </tr>
                      ))
 
-     const cantripDropDown = this.cantrip.map((cantrip, i) => (
-                <tr key={i}>
-                        <td>{cantrip.name}</td>
-                </tr>
-     ))
-
 
     return(
         <div>
@@ -185,11 +179,11 @@ class WizardCantrip extends Component{
 
         <Dropdown
                 placeholder="Select"
-                options={cantripDropDown}
+                options="hello"
         />
 
         <Container fluid>
-        <Table>
+        <Table bordered hover dark>
             <thead>
                 <tr>
                     <th>Cantrip</th>

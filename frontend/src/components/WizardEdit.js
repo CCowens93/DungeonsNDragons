@@ -79,7 +79,7 @@ render() {
 
     let wizardLevel = 1
     let proficiencyBonus = 2
-    let features = "Spell Casting, Arcane Recovery"
+    let features = ["Spell Casting", " Arcane Recovery"]
     let cantripsKnown = 3
     let firstSpellSlot = 2
     let secondSpellSlot = 0
@@ -93,6 +93,109 @@ render() {
 
     if(item.experiencePoints >= 300){
         firstSpellSlot = firstSpellSlot + 1
+        wizardLevel = wizardLevel + 1
+        features = "Arcane Tradition"
+    }
+
+    if(item.experiencePoints >=900){
+        firstSpellSlot = firstSpellSlot + 1
+        secondSpellSlot = seventhSpellSlot + 2
+        wizardLevel = wizardLevel + 1
+    }
+
+    if(item.experiencePoints >=2700){
+        cantripsKnown = cantripsKnown + 1
+        secondSpellSlot = secondSpellSlot + 1
+        wizardLevel = wizardLevel + 1
+        features = "Ability Score Improvement"
+    }
+
+    if(item.experiencePoints >=6500){
+        proficiencyBonus = proficiencyBonus + 1
+        thirdSpellSlot = thirdSpellSlot + 2
+        wizardLevel = wizardLevel + 1
+    }
+
+    if(item.experiencePoints >=14000){
+        thirdSpellSlot = thirdSpellSlot + 1
+        wizardLevel = wizardLevel + 1
+        features = "Arcane Tradition Features"
+    }
+
+    if(item.experiencePoints >=23000){
+        fourthSpellSlot = fourthSpellSlot + 1
+        wizardLevel = wizardLevel + 1
+    }
+
+    if(item.experiencePoints >= 34000){
+        fourthSpellSlot = fourthSpellSlot + 1
+        wizardLevel = wizardLevel + 1
+        features = "Ability Score Improvement"
+    }
+
+    if(item.experiencePoints >= 48000){
+        proficiencyBonus = proficiencyBonus + 1
+        fourthSpellSlot = fourthSpellSlot + 1
+        fifthSpellSlot = fifthSpellSlot + 1
+        wizardLevel = wizardLevel + 1
+    }
+
+    if(item.experiencePoints >= 64000){
+        cantripsKnown = cantripsKnown + 1
+        fifthSpellSlot = fifthSpellSlot + 1
+        wizardLevel = wizardLevel + 1
+        features = "Arcane Tradition Features"
+    }
+
+    if(item.experiencePoints >= 85000){
+        sixthSpellSlot = sixthSpellSlot + 1
+        wizardLevel = wizardLevel + 1
+    }
+
+    if(item.experiencePoints >= 100000){
+        features = "Ability Score Improvement"
+    }
+
+    if(item.experiencePoints >= 120000){
+        proficiencyBonus = proficiencyBonus + 1
+        seventhSpellSlot = seventhSpellSlot + 1
+        wizardLevel = wizardLevel + 1
+    }
+
+    if(item.experiencePoints >= 140000){
+        features = "Arcane Tradition Feature"
+
+    }
+
+    if(item.experiencePoints >= 165000){
+        eightSpellSlot = eightSpellSlot + 1
+        wizardLevel = wizardLevel + 1
+    }
+
+    if(item.experiencePoints >= 195000){
+        features = "Ability Score Improvement"
+    }
+
+    if(item.experiencePoints >= 225000){
+        proficiencyBonus = proficiencyBonus + 1
+        ninthSpellSlot = ninthSpellSlot + 1
+        wizardLevel = wizardLevel + 1
+    }
+
+    if(item.experiencePoints >= 265000){
+        features = "Spell Mastery"
+    }
+
+    if(item.experiencePoints >= 305000){
+        sixthSpellSlot = sixthSpellSlot + 1
+        wizardLevel = wizardLevel + 1
+        features = "Ability Score Improvement"
+    }
+
+    if(item.experiencePoints >= 355000){
+        seventhSpellSlot = seventhSpellSlot + 1
+        wizardLevel = wizardLevel + 1
+        features = "Signature Spells"
     }
 
     return <div>
@@ -246,11 +349,12 @@ render() {
           </FormGroup>
         </Form>
 
-        <h3><Link to="wizard-cantrips/" id="cantripLink">Cantrips</Link></h3>
-        <h3><Link to="/wizard-level1-spells/">Level 1 Spells</Link></h3>
+        <p><Link to="/wizard-cantrips/" id="cantripLink">Cantrips</Link></p>
+        <p><Link to="/wizard-level1-spells/">Level 1 Spells</Link></p>
 
         <Form onSubmit={this.handleSubmit}>
             <FormGroup>
+                <Label>Experience Points</Label>
                 <input
                     name="experiencePoints"
                     id="experiencePoints"
@@ -267,6 +371,7 @@ render() {
 
         <Table>
             <thead>
+
                 <tr>
                     <th>Level</th>
                     <th>Proficiency Bonus</th>
@@ -288,7 +393,7 @@ render() {
             <tbody>
                 <tr>
                     <td>{wizardLevel}</td>
-                    <td>{proficiencyBonus}</td>
+                    <td>+{proficiencyBonus}</td>
                     <td>{features}</td>
                     <td>{cantripsKnown}</td>
                     <td>
@@ -302,6 +407,30 @@ render() {
                         <td width="13%">{eightSpellSlot}</td>
                         <td width="13%">{ninthSpellSlot}</td>
                     </td>
+                </tr>
+            </tbody>
+        </Table>
+
+
+        <Table>
+            <thead>
+                <tr>
+                    <th>Strength</th>
+                    <th>Dexterity</th>
+                    <th>Constitution</th>
+                    <th>Intelligence</th>
+                    <th>Wisdom</th>
+                    <th>Charisma</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </tbody>
         </Table>
