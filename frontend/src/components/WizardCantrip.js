@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Container, Table } from 'reactstrap';
 import AppNavbar from './AppNavbar';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 class WizardCantrip extends Component{
 
-    state = {
-         cantrip: [
+
+         cantrip = [
              {
                      _id:1,
                      name: 'Acid Splash',
@@ -152,13 +154,12 @@ class WizardCantrip extends Component{
 
 
              ]
-    }
+
 
      render(){
 
-        console.log(this.state.cantrip)
 
-     const wizardCantripTable = this.state.cantrip.map((spell, i) => (
+     const wizardCantripTable = this.cantrip.map((spell, i) => (
                           <tr key={i}>
                               <td>{spell.name}</td>
                               <td>{spell.type}</td>
@@ -170,9 +171,22 @@ class WizardCantrip extends Component{
                               <td width={500}>{spell.damage}</td>
                           </tr>
                      ))
-      return(
+
+     const cantripDropDown = this.cantrip.map((cantrip, i) => (
+                <tr key={i}>
+                        <td>{cantrip.name}</td>
+                </tr>
+     ))
+
+
+    return(
         <div>
         <AppNavbar/>
+
+        <Dropdown
+                placeholder="Select"
+                options={cantripDropDown}
+        />
 
         <Container fluid>
         <Table>

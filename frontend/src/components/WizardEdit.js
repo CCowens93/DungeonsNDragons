@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Container, Table, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 
 class WizardEdit extends Component {
@@ -28,7 +28,8 @@ class WizardEdit extends Component {
     treasure:'',
     characterAppearance:'',
     characterBackstory:'',
-    alliesAndOrganizations:''
+    alliesAndOrganizations:'',
+    cantripList:[]
     };
 
 constructor(props) {
@@ -76,8 +77,27 @@ render() {
     const {item} = this.state;
     const title = <h2>{item.id ? `Update ${item.name}` : 'Add Wizard'}</h2>;
 
+    let wizardLevel = 1
+    let proficiencyBonus = 2
+    let features = "Spell Casting, Arcane Recovery"
+    let cantripsKnown = 3
+    let firstSpellSlot = 2
+    let secondSpellSlot = 0
+    let thirdSpellSlot = 0
+    let fourthSpellSlot = 0
+    let fifthSpellSlot = 0
+    let sixthSpellSlot = 0
+    let seventhSpellSlot = 0
+    let eightSpellSlot = 0
+    let ninthSpellSlot = 0
+
+    if(item.experiencePoints >= 300){
+        firstSpellSlot = firstSpellSlot + 1
+    }
+
     return <div>
       <AppNavbar/>
+      <a href="#cantripLink">Spells</a>
       <Container>
         {title}
 
@@ -226,8 +246,65 @@ render() {
           </FormGroup>
         </Form>
 
-        <h3><Link to="wizard-cantrip">Cantrips</Link></h3>
+        <h3><Link to="wizard-cantrips/" id="cantripLink">Cantrips</Link></h3>
         <h3><Link to="/wizard-level1-spells/">Level 1 Spells</Link></h3>
+
+        <Form onSubmit={this.handleSubmit}>
+            <FormGroup>
+                <input
+                    name="experiencePoints"
+                    id="experiencePoints"
+                    type="number"
+                    placeholder="experience"
+                    value={item.experiencePoints}
+                    onChange={this.handleChange}
+               />
+            </FormGroup>
+            <FormGroup>
+                <Button color="primary" type="submit">Save</Button>{' '}
+            </FormGroup>
+        </Form>
+
+        <Table>
+            <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Proficiency Bonus</th>
+                    <th>Features</th>
+                    <th>Cantrips Known</th>
+                    <th>Spell Slots per Spell Level
+                        <th>1st</th>
+                        <th>2nd</th>
+                        <th>3rd</th>
+                        <th>4th</th>
+                        <th>5th</th>
+                        <th>6th</th>
+                        <th>7th</th>
+                        <th>8th</th>
+                        <th>9th</th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{wizardLevel}</td>
+                    <td>{proficiencyBonus}</td>
+                    <td>{features}</td>
+                    <td>{cantripsKnown}</td>
+                    <td>
+                        <td width="13%">{firstSpellSlot}</td>
+                        <td width="13%">{secondSpellSlot}</td>
+                        <td width="13%">{thirdSpellSlot}</td>
+                        <td width="13%">{fourthSpellSlot}</td>
+                        <td width="13%">{fifthSpellSlot}</td>
+                        <td width="13%">{sixthSpellSlot}</td>
+                        <td width="13%">{seventhSpellSlot}</td>
+                        <td width="13%">{eightSpellSlot}</td>
+                        <td width="13%">{ninthSpellSlot}</td>
+                    </td>
+                </tr>
+            </tbody>
+        </Table>
 
       </Container>
     </div>
