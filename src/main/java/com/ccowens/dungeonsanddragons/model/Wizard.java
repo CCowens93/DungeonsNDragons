@@ -43,6 +43,7 @@ public class Wizard {
     private String characterAppearances;
     private String characterBackstory;
     private String alliesAndOrganizations;
+    private String cantrips;
     @ManyToOne(cascade=CascadeType.PERSIST)
     private User user;
 

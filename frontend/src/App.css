@@ -13,6 +13,16 @@
   }
 }
 
+a {
+    text-decoration: none;
+    text-color: gray;
+}
+
+#form-header {
+    margin: 90px auto;
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -27,8 +37,30 @@
 .App-link {
   color: #61dafb;
 }
+
+.anchors{
+    display: flex;
+    justify-content: space-around;
+    background-color: #2F4F4F;
+    height: 40px;
+}
+
 .container, .container-fluid {
-  margin: 20px 20px 500px 20px;
+  margin: 40px 20px 150px 20px;
+}
+
+.header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.levelAndSpellSlots{
+    margin: 50px 10px 300px 10px;
+}
+
+.proficiencyStats{
+    margin: 120px 10px 60px 10px;
 }
 
 .wiz {

@@ -198,11 +198,53 @@ render() {
         features = "Signature Spells"
     }
 
+    let strength = 0
+    let dexterity = 2
+    let constitution = -1
+    let intelligence = 3
+    let wisdom = 2
+    let charisma = 1
+
+    let strengthST = 0
+    let dexterityST = 2
+    let constitutionST = -1
+    let intelligenceST = 5
+    let wisdomST = 4
+    let charismaST = 1
+
+    let acrobatics = 2
+    let animalHandling = 2
+    let arcana = 5
+    let athletics = 0
+    let deception = 1
+    let history = 5
+    let insight = 4
+    let intimidation = 1
+    let investigation = 5
+    let medicine = 2
+    let nature = 3
+    let perception = 2
+    let performance = 1
+    let persuasion = 1
+    let religion = 3
+    let sleightOfHand = 2
+    let stealth = 2
+    let survival = 2
+
+
+
     return <div>
+    <div className="header">
       <AppNavbar/>
-      <a href="#cantripLink">Spells</a>
+        <div className="anchors">
+            <a href="#form-header">Features & Traits</a>
+            <a href="#proficiency-stats">Proficiencies</a>
+            <a href="#cantrip-link">Spells</a>
+        </div>
+    </div>
+        <br id="form-header"></br>
       <Container>
-        {title}
+      <h3>{title}</h3>
 
         <Form onSubmit={this.handleSubmit}>
            <FormGroup>
@@ -343,13 +385,126 @@ render() {
                 <Input type="text" name="alliesAndOrganizations" id="alliesAndOrganizations" value={item.alliesAndOrganizations || ''}
                         onChange={this.handleChange} />
             </FormGroup>
-            <FormGroup>
+            <FormGroup id="proficiency-stats">
             <Button color="primary" type="submit">Save</Button>{' '}
             <Button color="secondary" tag={Link} to="/wizard">Cancel</Button>
           </FormGroup>
         </Form>
+<div className="proficiencyStats">
 
-        <p><Link to="/wizard-cantrips/" id="cantripLink">Cantrips</Link></p>
+        <h3>Proficiencies</h3>
+
+
+        <Table>
+            <thead>
+                <tr>
+                    <th>Strength</th>
+                    <th>Dexterity</th>
+                    <th>Constitution</th>
+                    <th>Intelligence</th>
+                    <th>Wisdom</th>
+                    <th>Charisma</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>+{strength}</td>
+                    <td>+{dexterity}</td>
+                    <td>{constitution}</td>
+                    <td>+{intelligence}</td>
+                    <td>+{wisdom}</td>
+                    <td>+{charisma}</td>
+                </tr>
+            </tbody>
+        </Table>
+
+        <h3>Saving Throws</h3>
+        <Table>
+            <thead>
+                <tr>
+                    <th>Strength</th>
+                    <th>Dexterity</th>
+                    <th>Constitution</th>
+                    <th>Intelligence</th>
+                    <th>Wisdom</th>
+                    <th>Charisma</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>+{strengthST}</td>
+                    <td>+{dexterityST}</td>
+                    <td>{constitutionST}</td>
+                    <td>+{intelligenceST}</td>
+                    <td>+{wisdomST}</td>
+                    <td>+{charismaST}</td>
+                </tr>
+            </tbody>
+        </Table>
+
+        <h3>Skills</h3>
+        <Table>
+            <thead>
+                <tr>
+                    <th>Acrobatics</th>
+                    <th>Animal Handling</th>
+                    <th>Arcana</th>
+                    <th>Athletics</th>
+                    <th>Deception</th>
+                    <th>History</th>
+                    <th>Insight</th>
+                    <th>Intimidation</th>
+                    <th>Investigation</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>+{acrobatics}</td>
+                    <td>+{animalHandling}</td>
+                    <td>+{arcana}</td>
+                    <td>+{athletics}</td>
+                    <td>+{deception}</td>
+                    <td>+{history}</td>
+                    <td>+{insight}</td>
+                    <td>+{intimidation}</td>
+                    <td>+{investigation}</td>
+                </tr>
+            </tbody>
+        </Table>
+        <Table>
+            <thead>
+                <tr>
+                    <th>Medicine</th>
+                    <th>Nature</th>
+                    <th>Perception</th>
+                    <th>Performance</th>
+                    <th>Persuasion</th>
+                    <th>Religion</th>
+                    <th>Sleight of Hand</th>
+                    <th>Stealth</th>
+                    <th>Survival</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>+{medicine}</td>
+                    <td>+{nature}</td>
+                    <td>+{perception}</td>
+                    <td>+{performance}</td>
+                    <td>+{persuasion}</td>
+                    <td>+{religion}</td>
+                    <td>+{sleightOfHand}</td>
+                    <td>+{stealth}</td>
+                    <td>+{survival}</td>
+                </tr>
+            </tbody>
+        </Table>
+</div>
+    <br></br>
+<div className="levelAndSpellSlots">
+   <h3>Level & Spell Slots</h3>
+        <p><Link to="/wizard-cantrips/" id="cantrip-link">Cantrips</Link></p>
         <p><Link to="/wizard-level1-spells/">Level 1 Spells</Link></p>
 
         <Form onSubmit={this.handleSubmit}>
@@ -378,15 +533,15 @@ render() {
                     <th>Features</th>
                     <th>Cantrips Known</th>
                     <th>Spell Slots per Spell Level
-                        <th>1st</th>
-                        <th>2nd</th>
-                        <th>3rd</th>
-                        <th>4th</th>
-                        <th>5th</th>
-                        <th>6th</th>
-                        <th>7th</th>
-                        <th>8th</th>
-                        <th>9th</th>
+                        <th width="10%">1st</th>
+                        <th width="10%">2nd</th>
+                        <th width="10%">3rd</th>
+                        <th width="10%">4th</th>
+                        <th width="10%">5th</th>
+                        <th width="10%">6th</th>
+                        <th width="10%">7th</th>
+                        <th width="10%">8th</th>
+                        <th width="10%">9th</th>
                     </th>
                 </tr>
             </thead>
@@ -397,44 +552,20 @@ render() {
                     <td>{features}</td>
                     <td>{cantripsKnown}</td>
                     <td>
-                        <td width="13%">{firstSpellSlot}</td>
-                        <td width="13%">{secondSpellSlot}</td>
-                        <td width="13%">{thirdSpellSlot}</td>
-                        <td width="13%">{fourthSpellSlot}</td>
-                        <td width="13%">{fifthSpellSlot}</td>
-                        <td width="13%">{sixthSpellSlot}</td>
-                        <td width="13%">{seventhSpellSlot}</td>
-                        <td width="13%">{eightSpellSlot}</td>
-                        <td width="13%">{ninthSpellSlot}</td>
+                        <td width="12%">{firstSpellSlot}</td>
+                        <td width="12%">{secondSpellSlot}</td>
+                        <td width="12%">{thirdSpellSlot}</td>
+                        <td width="12%">{fourthSpellSlot}</td>
+                        <td width="12%">{fifthSpellSlot}</td>
+                        <td width="12%">{sixthSpellSlot}</td>
+                        <td width="12%">{seventhSpellSlot}</td>
+                        <td width="12%">{eightSpellSlot}</td>
+                        <td width="12%">{ninthSpellSlot}</td>
                     </td>
                 </tr>
             </tbody>
         </Table>
-
-
-        <Table>
-            <thead>
-                <tr>
-                    <th>Strength</th>
-                    <th>Dexterity</th>
-                    <th>Constitution</th>
-                    <th>Intelligence</th>
-                    <th>Wisdom</th>
-                    <th>Charisma</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </Table>
-
+</div>
       </Container>
     </div>
   }
